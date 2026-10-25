@@ -2,41 +2,142 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Smart Keyboard for LG TVs – Privacy Policy</title>
 <style>
   body{font-family:system-ui,Arial,sans-serif;margin:2rem;line-height:1.5;color:#222;max-width:800px;margin:auto;padding:20px;}
   h1,h2{color:#2d2d2d;}
   table{border-collapse:collapse;width:100%;margin:15px 0;}
-  th,td{border:1px solid #ddd;padding:8px;text-align:left;}
+  th,td{border:1px solid #ddd;padding:8px;text-align:left;vertical-align:top;}
   th{background-color:#f4f4f4;}
+  ul{margin:0.4em 0 0.8em 1.2em;padding:0;}
 </style>
 </head>
 <body>
 <h1>Privacy Policy for Smart Keyboard for LG TVs</h1>
-<p><strong>Effective date:</strong> August 23, 2026</p>
+<p><strong>Effective date:</strong> August 23, 2026<br>
+<strong>Last updated:</strong> October 25, 2026</p>
 
-<h2>1. Introduction</h2>
-<p>Smart Keyboard for LG TVs ("the App") is an Android application that lets users control their LG WebOS TV with a virtual keyboard, remote-control buttons, and touchpad gestures. This Privacy Policy explains what personal information we collect, how we use it, and your choices.</p>
+<h2>1. What the app does</h2>
+<p>Smart Keyboard for LG TVs is an Android app that controls an LG webOS TV on your own
+Wi&#8209;Fi network: virtual keyboard, remote-control buttons, touchpad, and — if you choose to
+turn it on — content monitoring that records which apps are being opened on the TV, plus parental
+rules that ask the app to leave those apps. Controlling the TV happens directly between your phone
+and your TV. Nothing has to be online for the keyboard or remote to work.</p>
 
-<h2>2. Information We Collect</h2>
+<h2>2. Information we collect</h2>
+<p>Only the rows marked <em>sent to our server</em> ever leave your phone, and only when you are
+signed in and a TV is linked.</p>
 <table>
-  <tr><th>Category</th><th>What we collect</th><th>Why we collect it</th></tr>
-  <tr><td>Device & Connection</td><td>TV device ID, IP address, Wi-Fi SSID</td><td>To discover and maintain connection to the TV and send remote commands.</td></tr>
-  <tr><td>Usage & Session Data</td><td>App session timestamps, current app name, playback state, session duration</td><td>Provide usage statistics on dashboard and enable trial tracking.</td></tr>
-  <tr><td>Billing / Subscription</td><td>Google Play Billing info (product ID, purchase status)</td><td>Manage PRO subscription and enforce 24-hour trial.</td></tr>
-  <tr><td>Crash Data</td><td>Stack traces (on crash only)</td><td>To debug crashes and improve stability.</td></tr>
+  <tr><th>Category</th><th>What is collected</th><th>Why</th><th>Where it lives</th></tr>
+  <tr>
+    <td>Account</td>
+    <td>Email address and password (stored as a salted hash by our authentication provider), account creation date.</td>
+    <td>To link your phones and browsers to the same TVs and dashboard.</td>
+    <td><em>Sent to our server.</em></td>
+  </tr>
+  <tr>
+    <td>TV / device</td>
+    <td>TV name, IP address, MAC address, the pairing key your TV issued to the app, last-connected time, a random device code you can use to share the TV.</td>
+    <td>To reconnect to the same TV and to let a household member join it with that code.</td>
+    <td><em>Sent to our server</em> (name, IP, MAC, device code) and stored on the phone (pairing key).</td>
+  </tr>
+  <tr>
+    <td>Viewing history<br>(only if monitoring is on)</td>
+    <td>Which TV app was open (id and name, e.g. “YouTube”), the title the TV reports for what is playing, start and end time, and duration. No audio, no screen content, no screenshots.</td>
+    <td>To show a household what was watched and to decide whether a daily time limit or bedtime window is being exceeded.</td>
+    <td><em>Sent to our server.</em></td>
+  </tr>
+  <tr>
+    <td>Searches you send to the TV</td>
+    <td>The text you typed and any URL you opened through the app, plus which TV app received it.</td>
+    <td>To show the same history on the dashboard.</td>
+    <td><em>Sent to our server.</em></td>
+  </tr>
+  <tr>
+    <td>Parental rules</td>
+    <td>The rules you set (enabled, daily limit, bedtime window and days, blocked apps) and a log of each enforcement action: which app, what the app did, when, and by whom the rule was changed.</td>
+    <td>To enforce the rules from the phone and to let the parent review them.</td>
+    <td><em>Sent to our server.</em></td>
+  </tr>
+  <tr>
+    <td>Crash diagnostics</td>
+    <td>If the app crashes: the thread name and the error stack trace of that one crash.</td>
+    <td>To debug the app.</td>
+    <td><strong>On the phone only.</strong> It is never uploaded, and only the most recent crash is kept.</td>
+  </tr>
 </table>
 
-<h2>3. How We Use the Data</h2>
-<p>We use the data to maintain TV connection, show dashboard analytics, and manage subscriptions. No data is sold or shared with third-party advertisers.</p>
+<p><strong>We do not collect</strong> your contacts, call log, SMS, camera, microphone, photos,
+files, precise location or Wi&#8209;Fi network name. The app contains <strong>no advertising ID, no
+ad network and no third-party analytics SDK</strong>. Payment is handled entirely by Google Play
+Billing; the app keeps only the plan name and whether the subscription is active, and never sees
+your card details.</p>
 
-<h2>4. Data Retention & Deletion</h2>
-<p>Local data is kept for 30 days or until cleared. You can delete all data anytime inside the app via <strong>Settings -> Clear All Data</strong>.</p>
+<h2>3. Where data is stored and who processes it</h2>
+<p>Server-side data (account, TV, viewing history, searches, rules) is stored in our Supabase
+project — a hosted PostgreSQL database with row-level security, so an account can only read the
+rows for TVs it owns or has been shared. Supabase is our only processor besides Google Play
+(Billing and purchase records).</p>
 
-<h2>5. Security</h2>
-<p>All local data is stored in encrypted storage and network calls use secure HTTPS connections.</p>
+<h2>4. How data travels</h2>
+<ul>
+  <li><strong>Phone ↔ our server:</strong> HTTPS/TLS.</li>
+  <li><strong>Phone ↔ TV:</strong> your own local Wi&#8209;Fi network. The app tries the TV’s
+      encrypted endpoint first and falls back to a plain one when the TV only answers in plain text,
+      in which case the commands and the pairing key cross your LAN unencrypted. Even on the
+      encrypted endpoint the TV’s self-signed certificate is accepted without being checked against
+      a certificate authority, so it keeps casual eavesdroppers out but not a determined attacker
+      already inside your network. Either way this traffic stays inside your network — it does not
+      pass through our servers. Use a network you control, and avoid open or shared Wi‑Fi.</li>
+</ul>
+<p>On the phone, data is kept in the app’s private storage, which other apps cannot read. It is not
+separately encrypted by the app beyond what your device does for its own storage.</p>
 
-<h2>6. Contact Us</h2>
-<p>If you have any questions, contact us at: <strong>wgmagencies@gmail.com</strong></p>
+<h2>5. Retention</h2>
+<ul>
+  <li>Unsynced viewing sessions stay on the phone in a queue capped at 500 entries and searches at
+      1000; the queue is emptied when it is delivered, and the oldest entries are dropped if you
+      stay offline for a long time.</li>
+  <li>Server-side history is kept until you delete it — removing a TV from the dashboard deletes the
+      viewing history, searches and rules recorded against it — or until you delete your account,
+      which removes every row the account owns.</li>
+</ul>
+
+<h2>6. Deleting your data</h2>
+<p>You can delete your account and all associated data at any time, free of charge, from either
+place:</p>
+<ul>
+  <li><strong>In the app:</strong> TV Content Monitoring → <em>Delete Account &amp; Erase All
+      Data</em>. This removes the account and everything it owns on the server and wipes the app’s
+      local data on the phone.</li>
+  <li><strong>By request:</strong> email <a href="mailto:wgmagencies@gmail.com">wgmagencies@gmail.com</a>
+      and we will delete the account manually.</li>
+</ul>
+<p>If a web dashboard is available for your account, the <em>Delete account</em> control in its
+sidebar does exactly the same thing as the in-app button. Deleting the account is irreversible.
+Signing out or “unlinking” a TV keeps the account and its history, so it is not the same thing.</p>
+
+<h2>7. Permissions the app asks for, and why</h2>
+<table>
+  <tr><th>Permission</th><th>Used for</th></tr>
+  <tr><td>Internet, network &amp; Wi‑Fi state, multicast</td><td>Finding the TV on your network and sending commands to it.</td></tr>
+  <tr><td>Foreground service (connected device)</td><td>Keeping the TV connection and any monitoring running while the app is in the background; it is always shown as an ongoing notification.</td></tr>
+  <tr><td>Run at startup</td><td>Resuming monitoring after the phone reboots, so a parental rule does not silently stop.</td></tr>
+  <tr><td>Prevent sleep / ignore battery optimisation</td><td>Only used for the optional “Dedicated Monitor Mode” on a phone left at home; not required for normal use.</td></tr>
+  <tr><td>Google Play Billing</td><td>Purchasing PRO. Handled by Google, not by us.</td></tr>
+</table>
+
+<h2>8. Children</h2>
+<p>The app is aimed at an adult who manages a shared living-room TV, and its target age is 16 and
+older. It is not directed at children, we do not knowingly collect data from children, and the
+parental rules are intended to be operated by a parent or guardian on a TV they own.</p>
+
+<h2>9. Changes to this policy</h2>
+<p>If the app starts collecting anything not listed above, this page is updated and the date at the
+top changes. Continued use after an update means you accept the revised policy.</p>
+
+<h2>10. Contact</h2>
+<p>Questions, removal requests or a privacy complaint: <a href="mailto:wgmagencies@gmail.com">wgmagencies@gmail.com</a>.</p>
 </body>
 </html>
